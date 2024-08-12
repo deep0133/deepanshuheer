@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    --color-primary: #06040e;
+    --color-secondary: #18151f;
+    --color-buttons: #e16428;
+    --color-typography: #f6e9e9;
+  }
+}
+
+.my-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: blue;
+}
