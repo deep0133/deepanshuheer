@@ -34,8 +34,8 @@ export default function AboutCard() {
               MongoDB, Express.js, React, Node.js
             </li>
             <li>
-              <span className='font-poppin text-buttons'>Freelancer:</span>{" "}
-              Delivering tailored solutions to clients across various industries
+              <span className='font-poppin text-buttons'>Professional Developer:</span>{" "}
+              Delivering tailored solutions to clients across various industries within a team environment
             </li>
             <li>
               <span className='font-poppin text-buttons'>
@@ -43,7 +43,7 @@ export default function AboutCard() {
                 B-Tech Graduate:
               </span>{" "}
               Completed my degree from DAV University Project Enthusiast: Built
-              numerous projects showcasing technical skills and creativity
+              numerous projects showcasing technical skills and creativity in collaboration with team members.
             </li>
           </ul>
         </div>

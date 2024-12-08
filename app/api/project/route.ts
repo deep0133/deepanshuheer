@@ -1,7 +1,7 @@
 import uploadFile from "@/lib/uploadFile";
 import { NextResponse } from "next/server";
 import { database } from "../../../lib/firebaseConfig";
-import { ref, push, set, child, get } from "firebase/database";
+import { ref, push, set, child, get, remove } from "firebase/database";
 
 // -----GET Method---------
 export const GET = async () => {
@@ -57,6 +57,38 @@ export const POST = async (req: Request, res: Response) => {
       status: "success",
       message: "File uploaded successfully",
       data,
+    });
+  } catch (error: any) {
+    return NextResponse.json({
+      status: "false",
+      error: error.message,
+    });
+  }
+};
+
+// -----DELETE Method---------
+export const DELETE = async (req: Request) => {
+  try {
+    // Extract the project ID from the request URL or body
+    const url = new URL(req.url);
+    const projectId = url.searchParams.get("id");
+
+    if (!projectId) {
+      return NextResponse.json({
+        status: "false",
+        error: "Project ID is required",
+      });
+    }
+
+    // Construct the reference to the project in Firebase
+    const projectRef = ref(database, `projects/${projectId}`);
+
+    // Delete the project
+    await remove(projectRef);
+
+    return NextResponse.json({
+      status: "success",
+      message: "Project deleted successfully",
     });
   } catch (error: any) {
     return NextResponse.json({

@@ -17,6 +17,7 @@ export type ProjectsContextType = {
   addProjectLoading: boolean;
   projectAddedMsg: boolean;
   addProjectHandler: (addProject: jsonDataType, selectedFile: File) => void;
+  deleteProjectHandler: (projectId: string) => void;
 };
 
 export type ProjectCardProps = {

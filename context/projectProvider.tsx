@@ -53,6 +53,18 @@ export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({
     }
   };
 
+  const deleteProjectHandler = async (projectId:string) => {
+    try {
+      setAddProjectLoading(true)
+      await axios.delete("/api/project");
+      setProjectAddedMsg(!projectAddedMsg);
+    } catch (error) {
+      console.error("Error adding project:", error);
+    } finally {
+      setAddProjectLoading(false);
+    }
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -62,6 +74,7 @@ export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({
         addProjectLoading,
         projectAddedMsg,
         addProjectHandler,
+        deleteProjectHandler
       }}
     >
       {children}

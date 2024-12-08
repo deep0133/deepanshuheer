@@ -1,10 +1,11 @@
 "use client";
 import ProjectCard from "@/components/server/ProjectCard";
-import { ProjectContext } from "@/context/projectContext";
+import { AuthContext, ProjectContext } from "@/context/projectContext";
 import { useContext } from "react";
 
 export default function Page() {
   const { loading, projects } = useContext(ProjectContext)!;
+  const { user } = useContext(AuthContext)!;
 
   return (
     <div className='col-span-9 @container bg-slate-800/20 rounded-2xl text-typography p-3 space-y-8 shadow-2xl '>
@@ -24,6 +25,7 @@ export default function Page() {
             Object.entries(items)?.map(([id, item]) => (
               <ProjectCard
                 key={id}
+                user={user}
                 name={item?.name}
                 desc={item?.desc}
                 image_path={item?.image_path}

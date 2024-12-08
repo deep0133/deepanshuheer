@@ -1,5 +1,18 @@
 import Image from "next/image";
 import RevealOnScroll from "../client/RevealOnScroll";
+// import { userTypes } from "@/types";
+// import { User } from "firebase/auth";
+import deleteIcon from "../../assets/delete.svg"
+
+type propType =  {
+  name: string;
+  desc: string;
+  image_path: string | null;
+  tech: string;
+  type: string;
+  link: string |undefined;
+  // user:User | userTypes | null
+}
 
 const ProjectCard = ({
   name,
@@ -7,19 +20,15 @@ const ProjectCard = ({
   image_path,
   type,
   link,
-}: {
-  name: string;
-  desc: string;
-  image_path: string | null;
-  tech: string;
-  type: string;
-  link: string |undefined;
-}) => {
+}:propType) => {
   return (
     <RevealOnScroll>
       <div className='preview p-5 bg-slate-800/90 rounded-lg relative' style={{
         cursor:link? 'pointer':"auto"
       }} onClick={()=>{window.open(link,'_blank')}}>
+        <div className="delete-icon absolute bottom-2 right-2 p-1 cursor-pointer rounded-full border">
+          <Image src={deleteIcon} alt="" className="size-3" />
+        </div>
         <Image
           width='0'
           height='0'
