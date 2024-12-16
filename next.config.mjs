@@ -18,6 +18,7 @@ const nextConfig = {
         port: "",
       },
     ],
+    unoptimized: true,
   },
   env: {
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,

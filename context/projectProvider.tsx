@@ -18,6 +18,7 @@ export const ProjectsProvider: React.FC<ProjectsProviderProps> = ({
       setLoading(true);
       const { data } = await axios.get("/api/project");
       setProjects(data?.data);
+      console.log('-------data--------:',data.data)
     } catch (error: any) {
       console.error(error?.message);
     } finally {

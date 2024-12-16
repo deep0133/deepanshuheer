@@ -25,7 +25,6 @@ export default function Page() {
             Object.entries(items)?.map(([id, item]) => (
               <ProjectCard
                 key={id}
-                user={user}
                 name={item?.name}
                 desc={item?.desc}
                 image_path={item?.image_path}
